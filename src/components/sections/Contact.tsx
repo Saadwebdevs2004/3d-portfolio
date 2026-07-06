@@ -4,7 +4,7 @@ export const Contact = () => {
   const emailAddress = 'mhassanubl@gmail.com'
   const phoneNumber = '+92-300-4185356'
   const locationText = 'Lahore, Pakistan'
-  const linkedinUrl = 'https://linkedin.com'
+  const linkedinUrl = 'https://www.linkedin.com/in/saad-hassan-748712297/'
   const githubUrl = 'https://github.com/Saadwebdevs2004'
 
   const handleScrollToTop = () => {
