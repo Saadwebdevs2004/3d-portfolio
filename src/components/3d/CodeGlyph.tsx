@@ -21,9 +21,8 @@ export const CodeGlyph = ({ progressRef }: CodeGlyphProps) => {
   const outerGroupRef = useRef<THREE.Group>(null)
   const innerGroupRef = useRef<THREE.Group>(null)
   
-  const leftBracketRef = useRef<THREE.Group>(null)
-  const slashRef = useRef<THREE.Group>(null)
-  const rightBracketRef = useRef<THREE.Group>(null)
+  const leftBraceRef = useRef<THREE.Group>(null)
+  const rightBraceRef = useRef<THREE.Group>(null)
   
   const { camera } = useThree()
 
@@ -73,20 +72,16 @@ export const CodeGlyph = ({ progressRef }: CodeGlyphProps) => {
     currentSplit.current = THREE.MathUtils.lerp(currentSplit.current, targetSplit, 0.08)
     const split = currentSplit.current
 
-    // Translate left and right brackets, push slash backwards
-    if (leftBracketRef.current) {
-      leftBracketRef.current.position.x = -0.85 - split * 1.5
-      leftBracketRef.current.position.y = split * 0.1
-      leftBracketRef.current.position.z = -split * 0.2
+    // Translate left and right curly braces outward on scroll
+    if (leftBraceRef.current) {
+      leftBraceRef.current.position.x = -0.7 - split * 1.5
+      leftBraceRef.current.position.y = split * 0.1
+      leftBraceRef.current.position.z = -split * 0.2
     }
-    if (rightBracketRef.current) {
-      rightBracketRef.current.position.x = 0.85 + split * 1.5
-      rightBracketRef.current.position.y = -split * 0.1
-      rightBracketRef.current.position.z = -split * 0.2
-    }
-    if (slashRef.current) {
-      slashRef.current.position.z = -split * 1.8
-      slashRef.current.position.y = -split * 0.3
+    if (rightBraceRef.current) {
+      rightBraceRef.current.position.x = 0.7 + split * 1.5
+      rightBraceRef.current.position.y = -split * 0.1
+      rightBraceRef.current.position.z = -split * 0.2
     }
 
     // 1. GSAP-driven outer group animation (strictly rotation.y and position/camera)
@@ -152,12 +147,12 @@ export const CodeGlyph = ({ progressRef }: CodeGlyphProps) => {
       <group ref={outerGroupRef} position={[0, 0, 0]}>
         <group ref={innerGroupRef}>
 
-          {/* LEFT BRACKET "<" (Glass) */}
-          <group ref={leftBracketRef}>
+          {/* LEFT CURLY BRACE "{" (Glass) */}
+          <group ref={leftBraceRef}>
             <Center>
               <Text3D
                 font={fontPath}
-                size={1.3}
+                size={1.4}
                 height={0.16}
                 curveSegments={12}
                 bevelEnabled
@@ -166,44 +161,18 @@ export const CodeGlyph = ({ progressRef }: CodeGlyphProps) => {
                 bevelOffset={0}
                 bevelSegments={5}
               >
-                {"<"}
+                {"{"}
                 <MeshTransmissionMaterial {...glassParams} />
               </Text3D>
             </Center>
           </group>
 
-          {/* CENTER SLASH "/" (Brushed Titanium) */}
-          <group ref={slashRef}>
+          {/* RIGHT CURLY BRACE "}" (Glass) */}
+          <group ref={rightBraceRef}>
             <Center>
               <Text3D
                 font={fontPath}
-                size={1.3}
-                height={0.14}
-                curveSegments={12}
-                bevelEnabled
-                bevelThickness={0.03}
-                bevelSize={0.012}
-                bevelOffset={0}
-                bevelSegments={5}
-              >
-                {"/"}
-                <meshPhysicalMaterial 
-                  color="#262a33" 
-                  metalness={0.92} 
-                  roughness={0.15} 
-                  clearcoat={1.0}
-                  clearcoatRoughness={0.1}
-                />
-              </Text3D>
-            </Center>
-          </group>
-
-          {/* RIGHT BRACKET ">" (Glass) */}
-          <group ref={rightBracketRef}>
-            <Center>
-              <Text3D
-                font={fontPath}
-                size={1.3}
+                size={1.4}
                 height={0.16}
                 curveSegments={12}
                 bevelEnabled
@@ -212,7 +181,7 @@ export const CodeGlyph = ({ progressRef }: CodeGlyphProps) => {
                 bevelOffset={0}
                 bevelSegments={5}
               >
-                {">"}
+                {"}"}
                 <MeshTransmissionMaterial {...glassParams} />
               </Text3D>
             </Center>
