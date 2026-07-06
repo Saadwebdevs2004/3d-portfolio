@@ -20,34 +20,34 @@ const projectsData = [
   {
     id: 1,
     title: 'Renovation-Connect',
-    tagline: 'Premium MERN Construction Marketplace',
+    tagline: 'MERN & TypeScript Construction Platform',
     description:
-      'A high-end platform facilitating direct connections between homeowners and vetted contractors. Features an automated matching engine, real-time messaging, and secure job management.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Tailwind CSS'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+      'A full-stack web platform connecting clients with renovation and interior design professionals. Features frontend/backend separation, REST API architecture, and TypeScript throughout. Final Year Project — NCBA&E University.',
+    tech: ['TypeScript', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+    github: 'https://github.com/Saadwebdevs2004/3d-portfolio',
+    demo: 'https://github.com/Saadwebdevs2004',
     align: 'left' // text on left, 3D on right (cameraX = -1.8)
   },
   {
     id: 2,
     title: 'Weather Dashboard',
-    tagline: 'Real-Time Climate Analytics & Forecasts',
+    tagline: 'Real-Time Climate Forecasting',
     description:
-      'Interactive weather monitoring system using global API integrations. Offers detailed meteorological charting, regional history caching, and dynamic background updates depending on weather state.',
-    tech: ['React', 'TypeScript', 'Chart.js', 'OpenWeather API', 'Tailwind CSS'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+      'A real-time weather application showing current temperature and detailed forecasting data fetched via a REST API from OpenWeatherMap API.',
+    tech: ['JavaScript', 'REST APIs', 'OpenWeatherMap API', 'HTML5', 'CSS3'],
+    github: 'https://github.com/Saadwebdevs2004/3d-portfolio',
+    demo: 'https://github.com/Saadwebdevs2004',
     align: 'right' // text on right, 3D on left (cameraX = 1.8)
   },
   {
     id: 3,
-    title: 'To-Do Application',
-    tagline: 'Minimalist State-Managed Taskboard',
+    title: 'To-Do List App',
+    tagline: 'Minimalist State Taskboard',
     description:
-      'A sleek, productivity board centered around micro-interactions and performance. Features custom drag-drop cards, color tagging, subtasks tracking, and local storage synchronization.',
-    tech: ['React', 'Framer Motion', 'Tailwind CSS', 'LocalStorage'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
+      'A productivity-focused task management app with dynamic task addition/removal and persistent browser local storage state.',
+    tech: ['JavaScript', 'HTML5', 'CSS3', 'LocalStorage'],
+    github: 'https://github.com/Saadwebdevs2004/3d-portfolio',
+    demo: 'https://github.com/Saadwebdevs2004',
     align: 'left' // text on left, 3D on right (cameraX = -1.8)
   }
 ]

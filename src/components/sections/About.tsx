@@ -74,6 +74,26 @@ export const About = () => {
               Currently working as an <span className="text-white font-semibold">SEO & Web Development Specialist</span>, I merge search-optimized strategies with pixel-perfect development. 
               My unique background allows me to design web architectures that are not only engineering masterpieces but are also built to rank and convert right out of the box.
             </p>
+            
+            <div className="pt-6 border-t border-zinc-800/60 mt-6">
+              <h4 className="text-xs font-mono tracking-widest text-[#00f0ff] uppercase mb-4">EDUCATION</h4>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <div className="flex justify-between text-white font-semibold">
+                    <span>BSc Computer Science</span>
+                    <span className="text-zinc-500 font-normal">2022 – 2026</span>
+                  </div>
+                  <p className="text-zinc-400 text-xs mt-0.5">NCBA&E University, Lahore</p>
+                </div>
+                <div>
+                  <div className="flex justify-between text-white font-semibold">
+                    <span>Intermediate (ICS)</span>
+                    <span className="text-zinc-500 font-normal">2020 – 2022</span>
+                  </div>
+                  <p className="text-zinc-400 text-xs mt-0.5">Unique College, Lahore</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
 

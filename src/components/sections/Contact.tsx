@@ -1,9 +1,11 @@
 import { MagneticButton } from '../ui/MagneticButton'
 
 export const Contact = () => {
-  const emailAddress = 'saad.hassan.developer@gmail.com'
+  const emailAddress = 'mhassanubl@gmail.com'
+  const phoneNumber = '+92-300-4185356'
+  const locationText = 'Lahore, Pakistan'
   const linkedinUrl = 'https://linkedin.com'
-  const githubUrl = 'https://github.com'
+  const githubUrl = 'https://github.com/Saadwebdevs2004'
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -28,15 +30,28 @@ export const Contact = () => {
             Whether you want to discuss full-stack opportunities, SEO optimization strategy, or just talk tech, feel free to drop a message. My inbox is always open.
           </p>
 
-          {/* Email link with ArrowUpRight animation */}
-          <div className="group inline-flex items-center gap-2 mb-8">
-            <a 
-              href={`mailto:${emailAddress}`}
-              className="text-xl md:text-3xl font-mono text-white hover:text-[#00f0ff] transition-colors duration-300 border-b border-zinc-800 pb-2 relative overflow-hidden"
-            >
-              {emailAddress}
-            </a>
-            <svg className="w-6 h-6 text-zinc-500 group-hover:text-[#00f0ff] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 stroke-current fill-none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          {/* Contact details list */}
+          <div className="flex flex-col gap-4 mb-8 font-mono">
+            <div className="group inline-flex items-center gap-2">
+              <a 
+                href={`mailto:${emailAddress}`}
+                className="text-xl md:text-3xl text-white hover:text-[#00f0ff] transition-colors duration-300 border-b border-zinc-800 pb-2 relative overflow-hidden"
+              >
+                {emailAddress}
+              </a>
+              <svg className="w-6 h-6 text-zinc-500 group-hover:text-[#00f0ff] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 stroke-current fill-none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </div>
+            
+            <div className="text-sm mt-2 flex flex-col sm:flex-row sm:gap-8 gap-4">
+              <div>
+                <span className="text-zinc-500 block text-[10px] uppercase tracking-widest mb-1">Phone</span>
+                <a href={`tel:${phoneNumber}`} className="text-white hover:text-[#00f0ff] transition-colors">{phoneNumber}</a>
+              </div>
+              <div>
+                <span className="text-zinc-500 block text-[10px] uppercase tracking-widest mb-1">Location</span>
+                <span className="text-white">{locationText}</span>
+              </div>
+            </div>
           </div>
         </div>
 

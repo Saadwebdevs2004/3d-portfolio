@@ -15,26 +15,53 @@ const experienceData: Job[] = [
   {
     id: 1,
     role: 'SEO & Web Development Specialist',
-    company: 'AenZay Interiors',
-    period: 'May 2024 - Present',
+    company: 'AenZay Interiors & Architects',
+    period: 'Sep 2025 – Present',
     description: [
-      'Engineered and managed SEO architecture, achieving a 150% boost in organic search traffic and search engine rankings.',
-      'Developed, customized, and maintained professional corporate WordPress sites and internal web applications.',
-      'Integrated payment solutions, optimized page load speeds, and refined UI/UX layouts for maximum lead conversion.'
+      'Lead web development and SEO strategy for an interior design firm, managing website performance, content, and digital visibility.',
+      'Implement technical SEO improvements including Core Web Vitals optimization, schema markup, and Google Business Profile management.',
+      'Develop and maintain WordPress-based client websites, integrating plugins and ensuring cross-device compatibility.',
+      'Collaborate with marketing and design teams to align web presence with brand identity and business goals.'
     ],
-    tech: ['WordPress', 'SEO', 'JavaScript', 'PHP', 'Google Analytics', 'Core Web Vitals']
+    tech: ['WordPress', 'SEO', 'JavaScript', 'Google Analytics', 'Core Web Vitals', 'Schema Markup']
   },
   {
     id: 2,
-    role: 'Web Developer',
-    company: 'Virtual Assistants Pakistan',
-    period: 'Nov 2023 - May 2024',
+    role: 'Web Development Intern',
+    company: 'AenZay Interiors & Architects',
+    period: 'Jun 2025 – Sep 2025',
     description: [
-      'Developed high-converting landing pages and business sites utilizing modern frontend libraries.',
-      'Optimized backend databases, reducing query latencies and boosting site reliability.',
-      'Collaborated with designers to build fluid, interactive interfaces and user experiences.'
+      'Built and customized WordPress websites for interior design clients, focusing on responsive layouts and seamless UX.',
+      'Implemented SEO best practices including on-page optimization and image compression to improve site ranking.',
+      'Managed on-site content updates and tested website compatibility across multiple devices and browsers.',
+      'Gained practical exposure to the IT workflow within the interior design and architecture industry.'
     ],
-    tech: ['HTML/CSS', 'JavaScript', 'React', 'WordPress', 'MySQL', 'UI/UX Design']
+    tech: ['WordPress', 'SEO', 'HTML/CSS', 'UX Design', 'Cross-Device Testing']
+  },
+  {
+    id: 3,
+    role: 'Business Development Manager',
+    company: 'Virtual Assistants Pakistan',
+    period: 'Apr 2024 – Sep 2025',
+    description: [
+      'Led strategic business development initiatives including market analysis, lead pipeline management, and high-value deal closing.',
+      'Managed end-to-end sales processes from prospecting to client onboarding, consistently meeting revenue growth targets.',
+      'Mentored junior team members and coordinated with marketing and operations to align cross-functional strategies.',
+      'Maintained key account relationships and reported performance metrics to senior leadership.'
+    ],
+    tech: ['Lead Management', 'CRM Tools', 'Sales Pipeline', 'Strategic Planning', 'Client Relations']
+  },
+  {
+    id: 4,
+    role: 'Business Development Executive',
+    company: 'Virtual Assistants Pakistan',
+    period: 'Apr 2022 – Mar 2024',
+    description: [
+      'Prospected and qualified leads via LinkedIn, email outreach, and cold calls; managed sales pipeline using CRM tools.',
+      'Created customized proposals and presentations tailored to client needs, contributing directly to revenue growth.',
+      'Collaborated with marketing teams to improve lead generation strategies and align outreach messaging.'
+    ],
+    tech: ['LinkedIn Prospecting', 'CRM Tools', 'Sales Pipeline', 'Proposal Drafting', 'Lead Generation']
   }
 ]
 
