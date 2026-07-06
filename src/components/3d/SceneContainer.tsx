@@ -1,5 +1,6 @@
 import { Canvas } from '@react-three/fiber'
-import { MorphingParticles } from './MorphingParticles'
+import { CodeGlyph } from './CodeGlyph'
+import { Environment, ContactShadows } from '@react-three/drei'
 
 interface SceneContainerProps {
   progressRef: React.MutableRefObject<{
@@ -18,10 +19,43 @@ export const SceneContainer = ({ progressRef }: SceneContainerProps) => {
   return (
     <div className="fixed inset-0 w-screen h-screen pointer-events-none z-0">
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 60 }}
+        camera={{ position: [0, 0, 5], fov: 50 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <MorphingParticles progressRef={progressRef} />
+        {/* Three-point Studio Lighting */}
+        <ambientLight intensity={0.4} />
+        
+        {/* Key Light (Upper Left) */}
+        <directionalLight 
+          position={[-6, 6, 6]} 
+          intensity={2.8} 
+        />
+        
+        {/* Fill Light (Soft Right) */}
+        <directionalLight 
+          position={[6, 2, 4]} 
+          intensity={0.8} 
+        />
+        
+        {/* Rim Light (Behind, creates glowing highlights on glass edges) */}
+        <directionalLight 
+          position={[0, 4, -8]} 
+          intensity={3.2} 
+        />
+
+        <CodeGlyph progressRef={progressRef} />
+
+        {/* Soft Contact Shadows below the Glyph */}
+        <ContactShadows 
+          position={[0, -2.1, 0]} 
+          opacity={0.45} 
+          scale={7} 
+          blur={2.4} 
+          far={3.5} 
+        />
+
+        {/* Studio environment preset for realistic glass/metal reflections */}
+        <Environment preset="studio" />
       </Canvas>
     </div>
   )
