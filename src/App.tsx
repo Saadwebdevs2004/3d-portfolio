@@ -18,14 +18,15 @@ function App() {
 
   // Global shared 3D parameters read by Canvas
   const progressRef = useRef({
-    progress: 0.0, // 0 = Sphere, 1 = Torus Knot, 2 = Grid
+    progress: 0.0,
     cameraX: 0.0,
     cameraY: 0.0,
     cameraZ: 5.0,
     noiseStrength: 0.2,
     rotationSpeed: 0.005,
     color1: '#00f0ff',
-    color2: '#8b5cf6'
+    color2: '#8b5cf6',
+    rotationY: 0.0
   })
 
   // Initialize smooth scroll & register ScrollTrigger
@@ -39,13 +40,14 @@ function App() {
 
     // Hero -> About transition
     const trigger1 = gsap.to(progressRef.current, {
-      progress: 1.0, // Morph to Torus Knot
+      progress: 1.0,
       cameraX: -1.8, // Shift right
       cameraZ: 4.5,
       noiseStrength: 0.35,
       rotationSpeed: 0.015,
       color1: '#00f0ff',
       color2: '#8b5cf6',
+      rotationY: Math.PI * 0.7, // Tilted glass rotation
       scrollTrigger: {
         trigger: '#about',
         start: 'top bottom', // Start when about top is at viewport bottom
@@ -56,13 +58,14 @@ function App() {
 
     // Projects -> Experience transition
     const trigger2 = gsap.to(progressRef.current, {
-      progress: 2.0, // Morph to wavy grid
+      progress: 2.0,
       cameraX: 0.0,  // Centered in background
       cameraZ: 5.5,
       noiseStrength: 0.15,
       rotationSpeed: 0.003,
       color1: '#8b5cf6',
       color2: '#00f0ff',
+      rotationY: Math.PI * 2.2, // Continued rotation
       scrollTrigger: {
         trigger: '#experience',
         start: 'top bottom',
@@ -73,13 +76,14 @@ function App() {
 
     // Experience -> Contact transition
     const trigger3 = gsap.to(progressRef.current, {
-      progress: 0.0, // Morph back to slow particle sphere
+      progress: 0.0,
       cameraX: 0.0,
       cameraZ: 6.5,
-      noiseStrength: 0.45, // High noise for dispersed space dust look
+      noiseStrength: 0.45,
       rotationSpeed: 0.002,
       color1: '#00f0ff',
       color2: '#8b5cf6',
+      rotationY: Math.PI * 3.5, // Reassemble in footer with full rotation spin
       scrollTrigger: {
         trigger: '#contact',
         start: 'top bottom',

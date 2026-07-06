@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@400;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=general-sans@400,500&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --font-heading: 'Syne', sans-serif;
-  --font-mono: 'Space Grotesk', monospace;
+  --font-sans: 'General Sans', sans-serif;
+  --font-heading: 'Clash Display', sans-serif;
+  --font-mono: 'General Sans', sans-serif;
   
-  --color-bg-dark: #030303;
+  --color-bg-dark: #0a0a0c;
   --color-accent: #00f0ff;
   --color-accent-purple: #8b5cf6;
-  --color-card-dark: #0a0a0f;
+  --color-card-dark: #0f0f15;
   --color-border-dark: #1c1c24;
 }
 
@@ -29,6 +29,19 @@ body {
   background: linear-gradient(to bottom, #0a0a0c, #111114) fixed;
   color: #f3f4f6;
   overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Explicit font assignments to prevent fallback mixing */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading) !important;
+  font-weight: 500;
+  letter-spacing: -0.02em !important;
+  line-height: 1.05 !important;
+}
+
+p, span, div, a, button, input, textarea, li, select, option, td, th, .font-sans {
+  font-family: var(--font-sans) !important;
 }
 
 /* Scrollbar styling */
@@ -37,7 +50,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #030303;
+  background: #0a0a0c;
 }
 
 ::-webkit-scrollbar-thumb {

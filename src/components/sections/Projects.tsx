@@ -93,6 +93,7 @@ export const Projects = ({ progressRef }: ProjectsProps) => {
             noiseStrength: 0.15,
             color1: '#8b5cf6',
             color2: '#00f0ff',
+            rotationY: Math.PI * 2.2,
             duration: 0.5
           })
         },
@@ -105,6 +106,7 @@ export const Projects = ({ progressRef }: ProjectsProps) => {
             noiseStrength: 0.25,
             color1: '#00f0ff',
             color2: '#ffffff',
+            rotationY: Math.PI * 1.8,
             duration: 0.5
           })
         }
@@ -119,6 +121,7 @@ export const Projects = ({ progressRef }: ProjectsProps) => {
       noiseStrength: 0.3,
       color1: '#00f0ff',
       color2: '#8b5cf6',
+      rotationY: Math.PI * 0.9,
       duration: 0.2
     })
     .to(ch1, { opacity: 0, y: -50, pointerEvents: 'none', duration: 0.3 }, 'c1_out')
@@ -130,6 +133,7 @@ export const Projects = ({ progressRef }: ProjectsProps) => {
       noiseStrength: 0.45,
       color1: '#8b5cf6',
       color2: '#ff007f', // Reddish-purple vibe for Chapter 2
+      rotationY: Math.PI * 1.4,
       duration: 0.4
     }, 'c1_out')
 
@@ -143,6 +147,7 @@ export const Projects = ({ progressRef }: ProjectsProps) => {
       noiseStrength: 0.25,
       color1: '#00f0ff',
       color2: '#ffffff', // Electric blue/white vibe for Chapter 3
+      rotationY: Math.PI * 1.8,
       duration: 0.4
     }, 'c2_out')
     
