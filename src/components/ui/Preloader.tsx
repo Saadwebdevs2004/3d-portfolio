@@ -57,14 +57,14 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
     <AnimatePresence>
       {!isDone && (
         <motion.div
-          className="fixed inset-0 w-screen h-screen bg-[#030303] z-[9999] flex flex-col justify-between p-8 md:p-16 font-mono text-xs select-none"
+          className="fixed inset-0 w-screen h-screen bg-[#FAF7F2] z-[9999] flex flex-col justify-between p-8 md:p-16 font-mono text-xs select-none"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: '-100%', transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } }}
         >
           {/* Header */}
-          <div className="flex justify-between items-center text-zinc-500">
+          <div className="flex justify-between items-center text-[#4A4A6A]">
             <div>ANTIGRAVITY SYSTEM V4.3.2</div>
-            <div className="animate-pulse">ONLINE</div>
+            <div className="animate-pulse text-[#FF6B4A]">ONLINE</div>
           </div>
 
           {/* Middle: Glitchy percentage and logs */}
@@ -78,23 +78,23 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
               {progress}%
             </motion.h1>
 
-            <div className="h-6 overflow-hidden w-full text-zinc-400">
+            <div className="h-6 overflow-hidden w-full text-[#4A4A6A]">
               <motion.div
                 key={logIndex}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.15 }}
-                className="text-[#00f0ff] uppercase tracking-widest text-[10px] md:text-xs"
+                className="text-[#FF6B4A] uppercase tracking-widest text-[10px] md:text-xs"
               >
                 {bootLogs[logIndex]}
               </motion.div>
             </div>
 
             {/* Simulated thin progress bar */}
-            <div className="w-full h-[1px] bg-zinc-800 mt-4 relative">
+            <div className="w-full h-[1px] bg-[#1A1A2E]/10 mt-4 relative">
               <motion.div
-                className="absolute top-0 left-0 h-full bg-[#00f0ff]"
+                className="absolute top-0 left-0 h-full bg-[#FF6B4A]"
                 style={{ width: `${progress}%` }}
                 transition={{ ease: 'easeOut' }}
               />
@@ -102,7 +102,7 @@ export const Preloader = ({ onComplete }: PreloaderProps) => {
           </div>
 
           {/* Footer */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-zinc-600 gap-2 md:gap-0">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-[#4A4A6A] gap-2 md:gap-0">
             <div>DEVELOPER PORTFOLIO // SAAD HASSAN</div>
             <div>[ © 2026 ]</div>
           </div>

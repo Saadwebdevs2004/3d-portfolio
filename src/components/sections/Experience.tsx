@@ -107,11 +107,11 @@ export const Experience = () => {
           // Timeline node indicator scale and glow reveal
           gsap.fromTo(
             node,
-            { scale: 0, backgroundColor: '#0f0f15', borderColor: '#1c1c24' },
+            { scale: 0, backgroundColor: '#FAF7F2', borderColor: '#e5e0d8' },
             {
               scale: 1,
-              backgroundColor: '#030303',
-              borderColor: '#00f0ff',
+              backgroundColor: '#FAF7F2',
+              borderColor: '#4ECDC4',
               scrollTrigger: {
                 trigger: item,
                 start: 'top 70%',
@@ -153,10 +153,10 @@ export const Experience = () => {
     >
       <div className="max-w-6xl w-full mx-auto">
         <div className="flex flex-col mb-16 text-left">
-          <span className="text-xs font-mono tracking-widest text-[#00f0ff] uppercase mb-4">
+          <span className="text-xs font-mono tracking-widest text-[#4ECDC4] uppercase mb-4">
             03 // RECENT BACKGROUND
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white uppercase font-heading">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#1A1A2E] uppercase font-heading">
             Professional <span className="text-gradient-accent">Timeline.</span>
           </h2>
         </div>
@@ -167,7 +167,7 @@ export const Experience = () => {
           {/* Vertical Line */}
           <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 pointer-events-none">
             {/* Background trace line */}
-            <div className="absolute inset-0 bg-zinc-800/40" />
+            <div className="absolute inset-0 bg-[#1A1A2E]/10" />
             
             {/* Animated SVG drawing line */}
             <svg className="absolute inset-0 w-full h-full">
@@ -177,10 +177,10 @@ export const Experience = () => {
                 y1="0" 
                 x2="50%" 
                 y2="0" 
-                stroke="#00f0ff" 
+                stroke="#4ECDC4" 
                 strokeWidth="2"
                 strokeLinecap="round"
-                className="shadow-[0_0_10px_rgba(0,240,255,0.5)]"
+                className="shadow-[0_0_10px_rgba(78,205,196,0.3)]"
               />
             </svg>
           </div>
@@ -200,39 +200,39 @@ export const Experience = () => {
                 <div className="hidden md:block w-1/2" />
 
                 {/* Timeline node marker */}
-                <div className="absolute left-[20px] md:left-1/2 top-2 w-5 h-5 -translate-x-1/2 rounded-full border-2 border-zinc-800 bg-[#0f0f15] z-20 timeline-node flex items-center justify-center transition-all duration-300">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-ping" />
+                <div className="absolute left-[20px] md:left-1/2 top-2 w-5 h-5 -translate-x-1/2 rounded-full border-2 border-[#4ECDC4]/20 bg-[#FAF7F2] z-20 timeline-node flex items-center justify-center transition-all duration-300">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#4ECDC4] animate-ping" />
                 </div>
 
                 {/* Job Card */}
                 <div className="w-full md:w-1/2 pl-12 md:pl-16 md:pr-16 text-left timeline-card">
-                  <div className="glass-panel p-6 md:p-8 rounded-2xl border border-zinc-900 shadow-xl hover:border-zinc-800 hover:shadow-[0_15px_40px_rgba(0,0,0,0.6)] transition-all duration-300 relative overflow-hidden group">
+                  <div className="glass-panel p-6 md:p-8 rounded-2xl border border-[#4ECDC4]/10 shadow-lg hover:border-[#4ECDC4]/30 hover:shadow-[0_15px_40px_rgba(78,205,196,0.12)] transition-all duration-300 relative overflow-hidden group">
                     
                     {/* Corner gradient glow */}
-                    <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-gradient-to-br from-[#00f0ff]/5 to-transparent rounded-full blur-2xl pointer-events-none group-hover:from-[#8b5cf6]/10 transition-all duration-500" />
+                    <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-gradient-to-br from-[#4ECDC4]/10 to-transparent rounded-full blur-2xl pointer-events-none group-hover:from-[#4ECDC4]/20 transition-all duration-500" />
                     
-                    <span className="text-xs font-mono text-[#00f0ff] tracking-widest uppercase mb-1 block">
+                    <span className="text-xs font-mono text-[#4ECDC4] tracking-widest uppercase mb-1 block">
                       {job.period}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight uppercase group-hover:text-[#00f0ff] transition-colors duration-300">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#1A1A2E] tracking-tight uppercase group-hover:text-[#4ECDC4] transition-colors duration-300">
                       {job.role}
                     </h3>
-                    <h4 className="text-sm font-mono text-zinc-400 uppercase tracking-widest mb-6">
+                    <h4 className="text-sm font-mono text-[#4A4A6A] uppercase tracking-widest mb-6">
                       {job.company}
                     </h4>
 
-                    <ul className="text-zinc-400 font-sans text-sm space-y-3 leading-relaxed mb-6">
+                    <ul className="text-[#4A4A6A] font-sans text-sm space-y-3 leading-relaxed mb-6">
                       {job.description.map((desc, i) => (
                         <li key={i} className="relative pl-4">
-                          <span className="absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-zinc-800 group-hover:bg-[#8b5cf6] transition-colors" />
+                          <span className="absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-[#1A1A2E]/20 group-hover:bg-[#4ECDC4] transition-colors" />
                           {desc}
                         </li>
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-zinc-900/60">
+                    <div className="flex flex-wrap gap-2 pt-4 border-t border-[#1A1A2E]/10">
                       {job.tech.map((t, idx) => (
-                        <span key={idx} className="px-2.5 py-0.5 bg-zinc-950 border border-zinc-900 text-[10px] font-mono text-zinc-400 rounded-md">
+                        <span key={idx} className="px-2.5 py-0.5 bg-[#4ECDC4]/10 border border-[#4ECDC4]/20 text-[10px] font-mono text-[#1A1A2E] rounded-md">
                           {t}
                         </span>
                       ))}

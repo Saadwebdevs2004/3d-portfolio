@@ -24,8 +24,8 @@ function App() {
     cameraZ: 5.0,
     noiseStrength: 0.2,
     rotationSpeed: 0.005,
-    color1: '#00f0ff',
-    color2: '#8b5cf6',
+    color1: '#FF6B4A', // Coral
+    color2: '#9D8DF1', // Purple
     rotationY: 0.0
   })
 
@@ -46,8 +46,8 @@ function App() {
         cameraZ: 4.5,
         noiseStrength: 0.35,
         rotationSpeed: 0.015,
-        color1: '#00f0ff',
-        color2: '#8b5cf6',
+        color1: '#FF6B4A',
+        color2: '#9D8DF1',
         rotationY: Math.PI * 0.7, // Tilted glass rotation
         scrollTrigger: {
           trigger: '#about',
@@ -64,8 +64,8 @@ function App() {
         cameraZ: 5.5,
         noiseStrength: 0.15,
         rotationSpeed: 0.003,
-        color1: '#8b5cf6',
-        color2: '#00f0ff',
+        color1: '#9D8DF1',
+        color2: '#FF6B4A',
         rotationY: Math.PI * 2.2, // Continued rotation
         scrollTrigger: {
           trigger: '#experience',
@@ -82,8 +82,8 @@ function App() {
         cameraZ: 6.5,
         noiseStrength: 0.45,
         rotationSpeed: 0.002,
-        color1: '#00f0ff',
-        color2: '#8b5cf6',
+        color1: '#FF6B4A',
+        color2: '#9D8DF1',
         rotationY: Math.PI * 3.5, // Reassemble in footer with full rotation spin
         scrollTrigger: {
           trigger: '#contact',
@@ -106,7 +106,7 @@ function App() {
   }, [isLoading])
 
   return (
-    <main className="relative min-h-screen bg-[#030303] text-zinc-100 overflow-x-hidden select-none">
+    <main className="relative min-h-screen bg-[#FAF7F2] text-[#1A1A2E] overflow-x-hidden select-none">
       <CustomCursor />
       
       <Preloader onComplete={() => setIsLoading(false)} />

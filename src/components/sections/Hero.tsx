@@ -48,7 +48,7 @@ export const Hero = () => {
       {/* Spacer to align content nicely */}
       <div className="flex justify-between items-center w-full">
         <motion.span 
-          className="text-xs font-mono tracking-widest text-[#00f0ff] uppercase"
+          className="text-xs font-mono tracking-widest text-[#FF6B4A] uppercase"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -56,7 +56,7 @@ export const Hero = () => {
           DEVELOPER PORTFOLIO
         </motion.span>
         <motion.span 
-          className="text-xs font-mono tracking-widest text-zinc-500 hidden md:inline"
+          className="text-xs font-mono tracking-widest text-[#4A4A6A] hidden md:inline"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -86,7 +86,7 @@ export const Hero = () => {
         </motion.div>
 
         <motion.p 
-          className="text-lg sm:text-xl md:text-2xl text-zinc-400 font-mono tracking-wide max-w-2xl mb-8"
+          className="text-lg sm:text-xl md:text-2xl text-[#4A4A6A] font-mono tracking-wide max-w-2xl mb-8"
           variants={fadeUpVars}
           initial="initial"
           animate="animate"
@@ -102,7 +102,7 @@ export const Hero = () => {
           <MagneticButton>
             <button
               onClick={handleScrollDown}
-              className="px-6 py-3 bg-[#0a0a0f] border border-zinc-800 text-sm tracking-wider font-mono uppercase text-[#00f0ff] rounded-full hover:border-[#00f0ff] transition-colors duration-300 shadow-[0_0_15px_rgba(0,240,255,0.05)] cursor-pointer"
+              className="px-6 py-3 bg-[#FF6B4A] border border-[#FF6B4A] text-sm tracking-wider font-mono uppercase text-white rounded-full hover:bg-transparent hover:text-[#FF6B4A] transition-all duration-300 shadow-[0_4px_20px_rgba(255,107,74,0.15)] cursor-pointer"
             >
               EXPLORE WORKS
             </button>
@@ -112,14 +112,14 @@ export const Hero = () => {
 
       {/* Footer: scroll indicator */}
       <div className="flex justify-between items-end w-full">
-        <div className="text-zinc-600 text-[10px] md:text-xs font-mono">
+        <div className="text-[#4A4A6A] text-[10px] md:text-xs font-mono">
           BASED IN LAHORE, PAKISTAN
         </div>
 
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2 cursor-pointer text-zinc-400 hover:text-[#00f0ff]"
+          className="flex flex-col items-center gap-2 cursor-pointer text-[#4A4A6A] hover:text-[#FF6B4A]"
           onClick={handleScrollDown}
         >
           <span className="text-[10px] font-mono tracking-widest uppercase hidden md:inline">SCROLL TO DISCOVER</span>

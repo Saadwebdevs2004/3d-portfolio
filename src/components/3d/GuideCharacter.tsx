@@ -192,30 +192,45 @@ export const GuideCharacter = ({ progressRef }: GuideCharacterProps) => {
     camera.position.z = THREE.MathUtils.lerp(camera.position.z, targetParams.cameraZ, 0.06)
   })
 
-  // Material setup: clean, premium matte-pastel body combined with glowing neon cyan/white
-  const bodyMaterial = (
+  // Material setup: warm off-white, sunny yellow, coral, and glowing sky-teal
+  const mainYellowMaterial = (
     <meshPhysicalMaterial 
-      color="#e4e4e7" // Light zinc/grey
+      color="#FFC93C" // Sunny yellow
+      roughness={0.3}
+      metalness={0.1}
+      clearcoat={0.2}
+    />
+  )
+
+  const coralMaterial = (
+    <meshPhysicalMaterial 
+      color="#FF6B4A" // Coral
       roughness={0.4}
-      metalness={0.15}
-      clearcoat={0.3}
-      clearcoatRoughness={0.2}
+      metalness={0.1}
     />
   )
 
   const darkMaterial = (
     <meshStandardMaterial 
-      color="#18181b" // Dark zinc/black accent
+      color="#1A1A2E" // Soft near-black
       roughness={0.6}
-      metalness={0.2}
+      metalness={0.1}
     />
   )
 
-  const glowMaterial = (
+  const glowTealMaterial = (
     <meshStandardMaterial 
-      color="#00f0ff"
-      emissive="#00f0ff"
-      emissiveIntensity={1.5}
+      color="#4ECDC4" // Sky/teal
+      emissive="#4ECDC4"
+      emissiveIntensity={1.3}
+    />
+  )
+
+  const glowCoralMaterial = (
+    <meshStandardMaterial 
+      color="#FF6B4A" // Coral glow
+      emissive="#FF6B4A"
+      emissiveIntensity={1.3}
     />
   )
 
@@ -227,10 +242,10 @@ export const GuideCharacter = ({ progressRef }: GuideCharacterProps) => {
           <mesh key={i} position={star.position}>
             <sphereGeometry args={[0.014, 5, 5]} />
             <meshBasicMaterial 
-              color="#ffffff" 
+              color="#1A1A2E" // Dark stars for light theme
               transparent 
-              opacity={star.opacity}
-              blending={THREE.AdditiveBlending}
+              opacity={star.opacity * 1.5}
+              blending={THREE.NormalBlending}
             />
           </mesh>
         ))}
@@ -243,22 +258,22 @@ export const GuideCharacter = ({ progressRef }: GuideCharacterProps) => {
           {/* CAPSULE BODY */}
           <mesh position={[0, -0.1, 0]} castShadow receiveShadow>
             <cylinderGeometry args={[0.3, 0.32, 0.7, 16]} />
-            {bodyMaterial}
+            {mainYellowMaterial}
           </mesh>
           <mesh position={[0, 0.25, 0]}>
             <sphereGeometry args={[0.3, 16, 16]} />
-            {bodyMaterial}
+            {mainYellowMaterial}
           </mesh>
           <mesh position={[0, -0.45, 0]}>
             <sphereGeometry args={[0.32, 16, 16]} />
-            {bodyMaterial}
+            {mainYellowMaterial}
           </mesh>
 
           {/* HEAD */}
           <group ref={headRef} position={[0, 0.65, 0]}>
             <mesh castShadow>
               <sphereGeometry args={[0.36, 20, 20]} />
-              {bodyMaterial}
+              {mainYellowMaterial}
             </mesh>
 
             {/* SLEEK GLASS/GLOWING MASK FACEPLATE */}
@@ -270,17 +285,17 @@ export const GuideCharacter = ({ progressRef }: GuideCharacterProps) => {
             {/* GLOWING CYAN BLINKING EYES */}
             <mesh ref={leftEyeRef} position={[-0.11, 0, 0.32]}>
               <sphereGeometry args={[0.038, 12, 12]} />
-              {glowMaterial}
+              {glowTealMaterial}
             </mesh>
             <mesh ref={rightEyeRef} position={[0.11, 0, 0.32]}>
               <sphereGeometry args={[0.038, 12, 12]} />
-              {glowMaterial}
+              {glowTealMaterial}
             </mesh>
 
             {/* NEON GLOWING HALO (Floating futuristic tour host detail) */}
             <mesh position={[0, 0.52, -0.05]} rotation={[Math.PI / 2 + 0.15, 0, 0]}>
               <torusGeometry args={[0.22, 0.018, 8, 24]} />
-              {glowMaterial}
+              {glowCoralMaterial}
             </mesh>
           </group>
 
@@ -288,16 +303,16 @@ export const GuideCharacter = ({ progressRef }: GuideCharacterProps) => {
           <group ref={leftArmRef} position={[-0.45, 0.1, 0]}>
             <mesh position={[0, -0.16, 0]} castShadow>
               <cylinderGeometry args={[0.075, 0.065, 0.32, 8]} />
-              {bodyMaterial}
+              {coralMaterial}
             </mesh>
             <mesh position={[0, 0, 0]}>
               <sphereGeometry args={[0.09, 8, 8]} />
-              {bodyMaterial}
+              {coralMaterial}
             </mesh>
             {/* Hand sphere */}
             <mesh position={[0, -0.32, 0]}>
               <sphereGeometry args={[0.075, 8, 8]} />
-              {glowMaterial}
+              {glowTealMaterial}
             </mesh>
           </group>
 
@@ -305,16 +320,16 @@ export const GuideCharacter = ({ progressRef }: GuideCharacterProps) => {
           <group ref={rightArmRef} position={[0.45, 0.1, 0]}>
             <mesh position={[0, -0.16, 0]} castShadow>
               <cylinderGeometry args={[0.075, 0.065, 0.32, 8]} />
-              {bodyMaterial}
+              {coralMaterial}
             </mesh>
             <mesh position={[0, 0, 0]}>
               <sphereGeometry args={[0.09, 8, 8]} />
-              {bodyMaterial}
+              {coralMaterial}
             </mesh>
             {/* Hand sphere */}
             <mesh position={[0, -0.32, 0]}>
               <sphereGeometry args={[0.075, 8, 8]} />
-              {glowMaterial}
+              {glowTealMaterial}
             </mesh>
           </group>
 

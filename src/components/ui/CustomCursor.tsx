@@ -59,19 +59,19 @@ export const CustomCursor = () => {
     <>
       {/* Trailing Outer Ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#00f0ff] pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#FF6B4A] pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2"
         style={{
           x: ringX,
           y: ringY,
           scale: isHovered ? 1.6 : 1,
-          backgroundColor: isHovered ? 'rgba(0, 240, 255, 0.1)' : 'rgba(0, 0, 0, 0)',
-          borderColor: isHovered ? '#8b5cf6' : '#00f0ff',
+          backgroundColor: isHovered ? 'rgba(255, 107, 74, 0.15)' : 'rgba(0, 0, 0, 0)',
+          borderColor: isHovered ? '#9D8DF1' : '#FF6B4A',
         }}
         transition={{ type: 'tween', ease: 'backOut', duration: 0.2 }}
       />
       {/* Inner Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#00f0ff] pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#FF6B4A] pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2"
         style={{
           x: cursorX,
           y: cursorY,

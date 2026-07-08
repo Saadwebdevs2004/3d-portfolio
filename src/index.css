@@ -7,18 +7,20 @@
   --font-heading: 'Clash Display', sans-serif;
   --font-mono: 'General Sans', sans-serif;
   
-  --color-bg-dark: #0a0a0c;
-  --color-accent: #00f0ff;
-  --color-accent-purple: #8b5cf6;
-  --color-card-dark: #0f0f15;
-  --color-border-dark: #1c1c24;
+  --color-bg-light: #FAF7F2;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #4A4A6A;
+  --color-accent-coral: #FF6B4A;
+  --color-accent-yellow: #FFC93C;
+  --color-accent-teal: #4ECDC4;
+  --color-accent-purple: #9D8DF1;
 }
 
 /* Custom Base Styles */
 html {
   scroll-behavior: initial; /* Lenis handles smooth scroll */
-  background: linear-gradient(to bottom, #0a0a0c, #111114) fixed;
-  color: #f3f4f6;
+  background-color: #FAF7F2;
+  color: #1A1A2E;
   overflow-x: hidden;
 }
 
@@ -26,8 +28,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
-  background: linear-gradient(to bottom, #0a0a0c, #111114) fixed;
-  color: #f3f4f6;
+  background-color: #FAF7F2;
+  color: #1A1A2E;
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -50,22 +52,22 @@ p, span, div, a, button, input, textarea, li, select, option, td, th, .font-sans
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0c;
+  background: #FAF7F2;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1c1c24;
+  background: #e5e0d8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+  background: #FF6B4A;
 }
 
 /* Selection color */
 ::selection {
-  background-color: rgba(0, 240, 255, 0.2);
-  color: #00f0ff;
+  background-color: rgba(255, 107, 74, 0.2);
+  color: #FF6B4A;
 }
 
 /* Lenis smooth scrolling class support */
@@ -91,20 +93,20 @@ html.lenis, html.lenis body {
 
 /* Custom Utilities for Premium Look */
 .glass-panel {
-  background: rgba(10, 10, 15, 0.7);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(26, 26, 46, 0.06);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
+  background: linear-gradient(135deg, #1A1A2E 0%, #4A4A6A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-accent {
-  background: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #FF6B4A 0%, #9D8DF1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -117,7 +119,7 @@ html.lenis, html.lenis body {
   content: '';
   position: absolute;
   inset: -1px;
-  background: linear-gradient(90deg, #00f0ff, #8b5cf6);
+  background: linear-gradient(90deg, #FF6B4A, #9D8DF1);
   z-index: -1;
   border-radius: inherit;
   opacity: 0;
