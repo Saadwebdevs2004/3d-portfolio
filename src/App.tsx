@@ -77,7 +77,7 @@ function App() {
 
       // Experience -> Contact transition
       gsap.to(progressRef.current, {
-        progress: 0.0,
+        progress: 3.0,
         cameraX: 0.0,
         cameraZ: 6.5,
         noiseStrength: 0.45,

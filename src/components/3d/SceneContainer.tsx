@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { GuideCharacter } from './GuideCharacter'
+import { Laptop } from './Laptop'
 import { Environment, ContactShadows } from '@react-three/drei'
 
 interface SceneContainerProps {
@@ -52,18 +52,18 @@ export const SceneContainer = ({ progressRef }: SceneContainerProps) => {
           intensity={3.2} 
         />
 
-        <GuideCharacter progressRef={progressRef} />
+        <Laptop progressRef={progressRef} />
 
-        {/* Soft Contact Shadows below the Glyph */}
+        {/* Soft Contact Shadows below the Laptop */}
         <ContactShadows 
-          position={[0, -2.1, 0]} 
+          position={[0, -0.71, 0]} 
           opacity={0.45} 
           scale={7} 
           blur={2.4} 
           far={3.5} 
         />
 
-        {/* Studio environment preset for realistic glass/metal reflections */}
+        {/* Studio environment preset for realistic reflections */}
         <Environment preset="studio" />
       </Canvas>
     </div>
