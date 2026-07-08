@@ -38,58 +38,60 @@ function App() {
     // Register ScrollTrigger
     gsap.registerPlugin(ScrollTrigger)
 
-    // Hero -> About transition
-    const trigger1 = gsap.to(progressRef.current, {
-      progress: 1.0,
-      cameraX: -1.8, // Shift right
-      cameraZ: 4.5,
-      noiseStrength: 0.35,
-      rotationSpeed: 0.015,
-      color1: '#00f0ff',
-      color2: '#8b5cf6',
-      rotationY: Math.PI * 0.7, // Tilted glass rotation
-      scrollTrigger: {
-        trigger: '#about',
-        start: 'top bottom', // Start when about top is at viewport bottom
-        end: 'top center',   // Fully transitioned when about top reaches center
-        scrub: 0.5,
-      }
-    })
+    const ctx = gsap.context(() => {
+      // Hero -> About transition
+      gsap.to(progressRef.current, {
+        progress: 1.0,
+        cameraX: -1.8, // Shift right
+        cameraZ: 4.5,
+        noiseStrength: 0.35,
+        rotationSpeed: 0.015,
+        color1: '#00f0ff',
+        color2: '#8b5cf6',
+        rotationY: Math.PI * 0.7, // Tilted glass rotation
+        scrollTrigger: {
+          trigger: '#about',
+          start: 'top bottom', // Start when about top is at viewport bottom
+          end: 'top center',   // Fully transitioned when about top reaches center
+          scrub: 0.5,
+        }
+      })
 
-    // Projects -> Experience transition
-    const trigger2 = gsap.to(progressRef.current, {
-      progress: 2.0,
-      cameraX: 0.0,  // Centered in background
-      cameraZ: 5.5,
-      noiseStrength: 0.15,
-      rotationSpeed: 0.003,
-      color1: '#8b5cf6',
-      color2: '#00f0ff',
-      rotationY: Math.PI * 2.2, // Continued rotation
-      scrollTrigger: {
-        trigger: '#experience',
-        start: 'top bottom',
-        end: 'top center',
-        scrub: 0.5,
-      }
-    })
+      // Projects -> Experience transition
+      gsap.to(progressRef.current, {
+        progress: 2.0,
+        cameraX: 0.0,  // Centered in background
+        cameraZ: 5.5,
+        noiseStrength: 0.15,
+        rotationSpeed: 0.003,
+        color1: '#8b5cf6',
+        color2: '#00f0ff',
+        rotationY: Math.PI * 2.2, // Continued rotation
+        scrollTrigger: {
+          trigger: '#experience',
+          start: 'top bottom',
+          end: 'top center',
+          scrub: 0.5,
+        }
+      })
 
-    // Experience -> Contact transition
-    const trigger3 = gsap.to(progressRef.current, {
-      progress: 0.0,
-      cameraX: 0.0,
-      cameraZ: 6.5,
-      noiseStrength: 0.45,
-      rotationSpeed: 0.002,
-      color1: '#00f0ff',
-      color2: '#8b5cf6',
-      rotationY: Math.PI * 3.5, // Reassemble in footer with full rotation spin
-      scrollTrigger: {
-        trigger: '#contact',
-        start: 'top bottom',
-        end: 'top center',
-        scrub: 0.5,
-      }
+      // Experience -> Contact transition
+      gsap.to(progressRef.current, {
+        progress: 0.0,
+        cameraX: 0.0,
+        cameraZ: 6.5,
+        noiseStrength: 0.45,
+        rotationSpeed: 0.002,
+        color1: '#00f0ff',
+        color2: '#8b5cf6',
+        rotationY: Math.PI * 3.5, // Reassemble in footer with full rotation spin
+        scrollTrigger: {
+          trigger: '#contact',
+          start: 'top bottom',
+          end: 'top center',
+          scrub: 0.5,
+        }
+      })
     })
 
     // Refresh ScrollTrigger to update positions
@@ -99,12 +101,7 @@ function App() {
 
     return () => {
       clearTimeout(timeoutId)
-      trigger1.scrollTrigger?.kill()
-      trigger2.scrollTrigger?.kill()
-      trigger3.scrollTrigger?.kill()
-      trigger1.kill()
-      trigger2.kill()
-      trigger3.kill()
+      ctx.revert()
     }
   }, [isLoading])
 

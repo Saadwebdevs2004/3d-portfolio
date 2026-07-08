@@ -73,78 +73,75 @@ export const Experience = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    const container = containerRef.current
-    const line = lineRef.current
-    const items = itemsRef.current
+    const ctx = gsap.context(() => {
+      const container = containerRef.current
+      const line = lineRef.current
+      const items = itemsRef.current
 
-    if (!container || !line) return
+      if (!container || !line) return
 
-    // 1. Animate SVG timeline line drawing from top to bottom
-    const lineTrigger = gsap.fromTo(
-      line,
-      { attr: { y2: '0%' } },
-      {
-        attr: { y2: '100%' },
-        ease: 'none',
-        scrollTrigger: {
-          trigger: container,
-          start: 'top 50%',
-          end: 'bottom 70%',
-          scrub: 0.5
+      // Animate SVG timeline line drawing from top to bottom
+      gsap.fromTo(
+        line,
+        { attr: { y2: '0%' } },
+        {
+          attr: { y2: '100%' },
+          ease: 'none',
+          scrollTrigger: {
+            trigger: container,
+            start: 'top 50%',
+            end: 'bottom 70%',
+            scrub: 0.5
+          }
         }
-      }
-    )
+      )
 
-    // 2. Animate timeline nodes & cards reveal on scroll
-    const triggers: ScrollTrigger[] = []
-    items.forEach((item) => {
-      if (!item) return
-      
-      const node = item.querySelector('.timeline-node')
-      const card = item.querySelector('.timeline-card')
+      // Animate timeline nodes & cards reveal on scroll
+      items.forEach((item) => {
+        if (!item) return
+        
+        const node = item.querySelector('.timeline-node')
+        const card = item.querySelector('.timeline-card')
 
-      if (node && card) {
-        // Timeline node indicator scale and glow reveal
-        const nodeTl = gsap.fromTo(
-          node,
-          { scale: 0, backgroundColor: '#0f0f15', borderColor: '#1c1c24' },
-          {
-            scale: 1,
-            backgroundColor: '#030303',
-            borderColor: '#00f0ff',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse'
+        if (node && card) {
+          // Timeline node indicator scale and glow reveal
+          gsap.fromTo(
+            node,
+            { scale: 0, backgroundColor: '#0f0f15', borderColor: '#1c1c24' },
+            {
+              scale: 1,
+              backgroundColor: '#030303',
+              borderColor: '#00f0ff',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+              }
             }
-          }
-        )
+          )
 
-        // Card translation and opacity fade
-        const cardTl = gsap.fromTo(
-          card,
-          { opacity: 0, x: item.classList.contains('flex-row-reverse') ? 50 : -50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse'
+          // Card translation and opacity fade
+          gsap.fromTo(
+            card,
+            { opacity: 0, x: item.classList.contains('flex-row-reverse') ? 50 : -50 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+              }
             }
-          }
-        )
-
-        if (nodeTl.scrollTrigger) triggers.push(nodeTl.scrollTrigger)
-        if (cardTl.scrollTrigger) triggers.push(cardTl.scrollTrigger)
-      }
-    })
+          )
+        }
+      })
+    }, containerRef)
 
     return () => {
-      lineTrigger.kill()
-      triggers.forEach(t => t.kill())
+      ctx.revert()
     }
   }, [])
 

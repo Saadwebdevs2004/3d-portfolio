@@ -154,12 +154,12 @@ export const CodeGlyph = ({ progressRef }: CodeGlyphProps) => {
                 font={fontPath}
                 size={1.4}
                 height={0.16}
-                curveSegments={12}
+                curveSegments={6}
                 bevelEnabled
                 bevelThickness={0.03}
                 bevelSize={0.012}
                 bevelOffset={0}
-                bevelSegments={5}
+                bevelSegments={2}
               >
                 {"{"}
                 <MeshTransmissionMaterial {...glassParams} />
@@ -174,12 +174,12 @@ export const CodeGlyph = ({ progressRef }: CodeGlyphProps) => {
                 font={fontPath}
                 size={1.4}
                 height={0.16}
-                curveSegments={12}
+                curveSegments={6}
                 bevelEnabled
                 bevelThickness={0.03}
                 bevelSize={0.012}
                 bevelOffset={0}
-                bevelSegments={5}
+                bevelSegments={2}
               >
                 {"}"}
                 <MeshTransmissionMaterial {...glassParams} />

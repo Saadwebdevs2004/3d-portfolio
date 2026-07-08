@@ -71,94 +71,93 @@ export const Projects = ({ progressRef }: ProjectsProps) => {
 
     if (!trigger || !pinEl || !ch1 || !ch2 || !ch3) return
 
-    // Set initial states for chapter 2 and 3 (hidden/offset)
-    gsap.set(ch2, { opacity: 0, y: 50, pointerEvents: 'none' })
-    gsap.set(ch3, { opacity: 0, y: 50, pointerEvents: 'none' })
+    const ctx = gsap.context(() => {
+      // Set initial states for chapter 2 and 3 (hidden/offset)
+      gsap.set(ch2, { opacity: 0, y: 50, pointerEvents: 'none' })
+      gsap.set(ch3, { opacity: 0, y: 50, pointerEvents: 'none' })
 
-    // Create GSAP ScrollTrigger timeline for pinning and morphing
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: trigger,
-        start: 'top top',
-        end: '+=300%', // Scroll depth equal to 3 sections
-        pin: pinEl,
-        scrub: 1,
-        anticipatePin: 1,
-        onLeave: () => {
-          // Return to centered grid state on scroll exit
-          gsap.to(progressRef.current, {
-            progress: 2.0,
-            cameraX: 0.0,
-            cameraZ: 5.5,
-            noiseStrength: 0.15,
-            color1: '#8b5cf6',
-            color2: '#00f0ff',
-            rotationY: Math.PI * 2.2,
-            duration: 0.5
-          })
-        },
-        onEnterBack: () => {
-          // Re-establish chapter 3 parameters
-          gsap.to(progressRef.current, {
-            progress: 1.8,
-            cameraX: -1.8,
-            cameraZ: 4.5,
-            noiseStrength: 0.25,
-            color1: '#00f0ff',
-            color2: '#ffffff',
-            rotationY: Math.PI * 1.8,
-            duration: 0.5
-          })
+      // Create GSAP ScrollTrigger timeline for pinning and morphing
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: trigger,
+          start: 'top top',
+          end: '+=300%', // Scroll depth equal to 3 sections
+          pin: pinEl,
+          scrub: 1,
+          anticipatePin: 1,
+          onLeave: () => {
+            // Return to centered grid state on scroll exit
+            gsap.to(progressRef.current, {
+              progress: 2.0,
+              cameraX: 0.0,
+              cameraZ: 5.5,
+              noiseStrength: 0.15,
+              color1: '#8b5cf6',
+              color2: '#00f0ff',
+              rotationY: Math.PI * 2.2,
+              duration: 0.5
+            })
+          },
+          onEnterBack: () => {
+            // Re-establish chapter 3 parameters
+            gsap.to(progressRef.current, {
+              progress: 1.8,
+              cameraX: -1.8,
+              cameraZ: 4.5,
+              noiseStrength: 0.25,
+              color1: '#00f0ff',
+              color2: '#ffffff',
+              rotationY: Math.PI * 1.8,
+              duration: 0.5
+            })
+          }
         }
-      }
-    })
+      })
 
-    // Chapter 1 -> Chapter 2 transition
-    tl.to(progressRef.current, {
-      progress: 1.1,
-      cameraX: -1.8, // Push 3D mesh to the right
-      cameraZ: 4.5,
-      noiseStrength: 0.3,
-      color1: '#00f0ff',
-      color2: '#8b5cf6',
-      rotationY: Math.PI * 0.9,
-      duration: 0.2
-    })
-    .to(ch1, { opacity: 0, y: -50, pointerEvents: 'none', duration: 0.3 }, 'c1_out')
-    .to(ch2, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.3 }, 'c1_out+=0.15')
-    .to(progressRef.current, {
-      progress: 1.5,
-      cameraX: 1.8,  // Push 3D mesh to the left
-      cameraZ: 4.8,
-      noiseStrength: 0.45,
-      color1: '#8b5cf6',
-      color2: '#ff007f', // Reddish-purple vibe for Chapter 2
-      rotationY: Math.PI * 1.4,
-      duration: 0.4
-    }, 'c1_out')
+      // Chapter 1 -> Chapter 2 transition
+      tl.to(progressRef.current, {
+        progress: 1.1,
+        cameraX: -1.8, // Push 3D mesh to the right
+        cameraZ: 4.5,
+        noiseStrength: 0.3,
+        color1: '#00f0ff',
+        color2: '#8b5cf6',
+        rotationY: Math.PI * 0.9,
+        duration: 0.2
+      })
+      .to(ch1, { opacity: 0, y: -50, pointerEvents: 'none', duration: 0.3 }, 'c1_out')
+      .to(ch2, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.3 }, 'c1_out+=0.15')
+      .to(progressRef.current, {
+        progress: 1.5,
+        cameraX: 1.8,  // Push 3D mesh to the left
+        cameraZ: 4.8,
+        noiseStrength: 0.45,
+        color1: '#8b5cf6',
+        color2: '#ff007f', // Reddish-purple vibe for Chapter 2
+        rotationY: Math.PI * 1.4,
+        duration: 0.4
+      }, 'c1_out')
 
-    // Chapter 2 -> Chapter 3 transition
-    tl.to(ch2, { opacity: 0, y: -50, pointerEvents: 'none', duration: 0.3 }, 'c2_out')
-    .to(ch3, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.3 }, 'c2_out+=0.15')
-    .to(progressRef.current, {
-      progress: 1.8,
-      cameraX: -1.8, // Push 3D mesh to the right
-      cameraZ: 4.5,
-      noiseStrength: 0.25,
-      color1: '#00f0ff',
-      color2: '#ffffff', // Electric blue/white vibe for Chapter 3
-      rotationY: Math.PI * 1.8,
-      duration: 0.4
-    }, 'c2_out')
-    
-    // Hold final slide brief scroll depth
-    tl.to({}, { duration: 0.2 })
+      // Chapter 2 -> Chapter 3 transition
+      tl.to(ch2, { opacity: 0, y: -50, pointerEvents: 'none', duration: 0.3 }, 'c2_out')
+      .to(ch3, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.3 }, 'c2_out+=0.15')
+      .to(progressRef.current, {
+        progress: 1.8,
+        cameraX: -1.8, // Push 3D mesh to the right
+        cameraZ: 4.5,
+        noiseStrength: 0.25,
+        color1: '#00f0ff',
+        color2: '#ffffff', // Electric blue/white vibe for Chapter 3
+        rotationY: Math.PI * 1.8,
+        duration: 0.4
+      }, 'c2_out')
+      
+      // Hold final slide brief scroll depth
+      tl.to({}, { duration: 0.2 })
+    }, triggerRef)
 
     return () => {
-      tl.kill()
-      ScrollTrigger.getAll().forEach(st => {
-        if (st.trigger === trigger) st.kill()
-      })
+      ctx.revert()
     }
   }, [progressRef])
 

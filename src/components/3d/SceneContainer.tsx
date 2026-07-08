@@ -16,11 +16,20 @@ interface SceneContainerProps {
 }
 
 export const SceneContainer = ({ progressRef }: SceneContainerProps) => {
+  const isLowEndOrRetina = typeof window !== 'undefined' && 
+    (window.devicePixelRatio > 1.5 || window.innerWidth < 768)
+
   return (
     <div className="fixed inset-0 w-screen h-screen pointer-events-none z-0">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ 
+          antialias: !isLowEndOrRetina, 
+          alpha: true, 
+          powerPreference: "high-performance" 
+        }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
       >
         {/* Three-point Studio Lighting */}
         <ambientLight intensity={0.4} />
