@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { CodeGlyph } from './CodeGlyph'
+import { GuideCharacter } from './GuideCharacter'
 import { Environment, ContactShadows } from '@react-three/drei'
 
 interface SceneContainerProps {
@@ -52,7 +52,7 @@ export const SceneContainer = ({ progressRef }: SceneContainerProps) => {
           intensity={3.2} 
         />
 
-        <CodeGlyph progressRef={progressRef} />
+        <GuideCharacter progressRef={progressRef} />
 
         {/* Soft Contact Shadows below the Glyph */}
         <ContactShadows 
